@@ -91,7 +91,7 @@ matrix = {
     "mac_firefox": {"browserName": "Firefox", "browserVersion": "latest", "bstack:options": {"os": "OS X", "osVersion": "Sonoma", "sessionName": "HW03 Firefox"}},
     "win_edge": {"browserName": "Edge", "browserVersion": "latest", "bstack:options": {"os": "Windows", "osVersion": "11", "sessionName": "HW03 Edge"}},
     "ipad_safari": {"browserName": "iPhone", "bstack:options": {"deviceName": "iPad 9th", "osVersion": "15", "realMobile": True, "sessionName": "HW03 Safari iPad"}},
-    "android_samsung": {"browserName": "Samsung Internet", "bstack:options": {"deviceName": "Samsung Galaxy S23", "osVersion": "13.0", "realMobile": True, "sessionName": "HW03 Samsung Internet"}},
+    "iphone_safari": {"browserName": "iPhone", "bstack:options": {"deviceName": "iPhone 13", "osVersion": "15", "realMobile": True, "sessionName": "HW03 Safari iPhone"}},
 }
 
 labels = {
@@ -99,7 +99,7 @@ labels = {
     "mac_firefox": "macOS Sonoma | Firefox | Desktop",
     "win_edge": "Windows 11 | Edge | Desktop",
     "ipad_safari": "iOS 15 | Safari | iPad 9th tablet",
-    "android_samsung": "Android 13 | Samsung Internet | Galaxy S23 phone",
+    "iphone_safari": "iOS 15 | Safari | iPhone 13 phone",
 }
 
 screens = {"b1": ("/dashboard", False), "b2": ("/events/68", False), "b3": ("/events/68", True)}
