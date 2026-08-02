@@ -89,7 +89,7 @@ def capture(name, capabilities, path, scroll_bottom=False):
 matrix = {
     "win_chrome": {"browserName": "Chrome", "browserVersion": "latest", "bstack:options": {"os": "Windows", "osVersion": "11", "sessionName": "HW03 Chrome"}},
     "mac_firefox": {"browserName": "Firefox", "browserVersion": "latest", "bstack:options": {"os": "OS X", "osVersion": "Sonoma", "sessionName": "HW03 Firefox"}},
-    "mac_opera": {"browserName": "Opera", "browserVersion": "latest", "bstack:options": {"os": "OS X", "osVersion": "Sonoma", "sessionName": "HW03 Opera"}},
+    "win_edge": {"browserName": "Edge", "browserVersion": "latest", "bstack:options": {"os": "Windows", "osVersion": "11", "sessionName": "HW03 Edge"}},
     "ipad_safari": {"browserName": "iPhone", "bstack:options": {"deviceName": "iPad 9th", "osVersion": "15", "realMobile": True, "sessionName": "HW03 Safari iPad"}},
     "android_samsung": {"browserName": "Samsung Internet", "bstack:options": {"deviceName": "Samsung Galaxy S23", "osVersion": "13.0", "realMobile": True, "sessionName": "HW03 Samsung Internet"}},
 }
@@ -97,7 +97,7 @@ matrix = {
 labels = {
     "win_chrome": "Windows 11 | Chrome | Desktop",
     "mac_firefox": "macOS Sonoma | Firefox | Desktop",
-    "mac_opera": "macOS Sonoma | Opera | Desktop",
+    "win_edge": "Windows 11 | Edge | Desktop",
     "ipad_safari": "iOS 15 | Safari | iPad 9th tablet",
     "android_samsung": "Android 13 | Samsung Internet | Galaxy S23 phone",
 }
