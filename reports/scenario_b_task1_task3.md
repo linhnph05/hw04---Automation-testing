@@ -50,6 +50,7 @@ BrowserStack Automate produced the following real screenshots. Every listed scre
 | B1 | Windows 11 | Edge | Desktop | Pass | [PNG](../evidence/task3/b1_win_edge.png) |
 | B1 | macOS Sonoma | Firefox | Desktop | Pass | [PNG](../evidence/task3/b1_mac_firefox.png) |
 | B1 | iOS 15 | Safari | iPad tablet | Pass | [PNG](../evidence/task3/b1_ipad_safari.png) |
+| B1 | iOS 15 | Safari | iPhone phone | Pass | [PNG](../evidence/task3/b1_iphone_safari.png) |
 | B2 | Windows 11 | Chrome | Desktop | Pass | [PNG](../evidence/task3/b2_win_chrome.png) |
 | B3 | Windows 11 | Chrome | Desktop | Pass | [PNG](../evidence/task3/b3_win_chrome.png) |
 
@@ -57,7 +58,7 @@ No layout overlap, horizontal page overflow, unreadable control, or non-responsi
 
 ### Coverage Limitation
 
-This BrowserStack trial rejected Opera as `Browser not permitted` and did not return usable Android/Samsung Internet or iPhone WebDriver sessions. Therefore this run **does not yet meet** the mandatory Task 3 coverage for every screen: B2 and B3 need macOS and iOS runs; all screens need phone coverage and a fifth distinct browser. This limitation is stated to avoid reporting unexecuted cells as passes.
+This BrowserStack trial rejected Opera as `Browser not permitted` and did not return a usable Android/Samsung Internet session. Therefore this run **does not yet meet** the mandatory Task 3 coverage for every screen: B2 and B3 need macOS, iOS, tablet, and phone runs; all screens need a fifth distinct browser. This limitation is stated to avoid reporting unexecuted cells as passes.
 
 ## Recommended Fixes
 
