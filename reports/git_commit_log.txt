@@ -1,3 +1,5 @@
+f7fcb31 | 2026-08-02T16:04:47+07:00 | Test B1 on iOS Safari phone
+5636a0c | 2026-08-02T16:03:49+07:00 | Document Scenario B GUI and compatibili...
 fe5d408 | 2026-08-02T16:02:43+07:00 | Test B3 on Windows 11 Chrome desktop
 6a8eb11 | 2026-08-02T16:02:43+07:00 | Test B2 on Windows 11 Chrome desktop
 d5b4e48 | 2026-08-02T16:02:29+07:00 | Test B1 on iOS Safari tablet
