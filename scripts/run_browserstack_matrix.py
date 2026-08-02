@@ -17,8 +17,23 @@ password = "Test@123"
 
 def request(method, path, body=None):
     response = requests.request(method, f"{hub}{path}", auth=(user, key), json=body, timeout=90)
-    response.raise_for_status()
+    if not response.ok:
+        raise RuntimeError(f"WebDriver {method} {path}: {response.status_code} {response.text}")
     return response.json()["value"]
+
+
+def create_session(capabilities):
+    response = requests.post(
+        f"{hub}/session",
+        auth=(user, key),
+        json={"capabilities": {"alwaysMatch": capabilities}},
+        timeout=90,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if "sessionId" not in payload.get("value", {}):
+        raise RuntimeError(f"BrowserStack session response: {payload}")
+    return payload["value"]["sessionId"]
 
 
 def wait_for_url(session, expected):
@@ -35,21 +50,31 @@ def element(session, selector):
 
 
 def capture(name, capabilities, path, scroll_bottom=False):
-    session = request("POST", "/session", {"capabilities": {"alwaysMatch": capabilities}})["sessionId"]
+    session = None
     try:
+        session = create_session(capabilities)
         request("POST", f"/session/{session}/url", {"url": site})
         wait_for_url(session, f"{site}/login?callbackUrl=%2F")
         for selector, value in [("input[type='email']", email), ("input[type='password']", password)]:
             element_id = element(session, selector)
             request("POST", f"/session/{session}/element/{element_id}/value", {"text": value})
         button = element(session, "button[type='submit']")
-        request("POST", f"/session/{session}/element/{button}/click")
+        request("POST", f"/session/{session}/element/{button}/click", {})
         wait_for_url(session, f"{site}/dashboard")
         request("POST", f"/session/{session}/url", {"url": f"{site}{path}"})
         time.sleep(3)
         if scroll_bottom:
             request("POST", f"/session/{session}/execute/sync", {"script": "window.scrollTo(0, document.body.scrollHeight)", "args": []})
             time.sleep(1)
+        label = labels[name.split("_", 1)[1]]
+        request(
+            "POST",
+            f"/session/{session}/execute/sync",
+            {
+                "script": "const id='hw03-evidence-label'; document.getElementById(id)?.remove(); const e=document.createElement('div'); e.id=id; e.textContent=arguments[0]; Object.assign(e.style,{position:'fixed',top:'0',left:'0',right:'0',zIndex:'2147483647',padding:'6px 10px',background:'#111827',color:'#ffffff',font:'12px Arial',textAlign:'center'}); document.body.append(e); return e.textContent;",
+                "args": [f"{email} | {label} | {site}{path}"],
+            },
+        )
         screenshot = request("GET", f"/session/{session}/screenshot")
         output = Path("evidence/task3") / f"{name}.png"
         output.write_bytes(base64.b64decode(screenshot))
@@ -57,7 +82,8 @@ def capture(name, capabilities, path, scroll_bottom=False):
     except Exception as error:
         print(json.dumps({"name": name, "status": "Blocked", "error": str(error)}))
     finally:
-        requests.delete(f"{hub}/session/{session}", auth=(user, key), timeout=30)
+        if session:
+            requests.delete(f"{hub}/session/{session}", auth=(user, key), timeout=30)
 
 
 matrix = {
@@ -68,8 +94,21 @@ matrix = {
     "android_samsung": {"browserName": "Samsung Internet", "bstack:options": {"deviceName": "Samsung Galaxy S23", "osVersion": "13.0", "realMobile": True, "sessionName": "HW03 Samsung Internet"}},
 }
 
+labels = {
+    "win_chrome": "Windows 11 | Chrome | Desktop",
+    "mac_firefox": "macOS Sonoma | Firefox | Desktop",
+    "mac_opera": "macOS Sonoma | Opera | Desktop",
+    "ipad_safari": "iOS 15 | Safari | iPad 9th tablet",
+    "android_samsung": "Android 13 | Samsung Internet | Galaxy S23 phone",
+}
+
 screens = {"b1": ("/dashboard", False), "b2": ("/events/68", False), "b3": ("/events/68", True)}
 
-for screen, (path, scroll_bottom) in screens.items():
-    for browser, capabilities in matrix.items():
-        capture(f"{screen}_{browser}", capabilities, path, scroll_bottom)
+if __name__ == "__main__":
+    selected = sys.argv[1:]
+    for screen, (path, scroll_bottom) in screens.items():
+        for browser, capabilities in matrix.items():
+            name = f"{screen}_{browser}"
+            if selected and name not in selected:
+                continue
+            capture(name, capabilities, path, scroll_bottom)
