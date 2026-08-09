@@ -79,8 +79,15 @@ function nextDialogMessage(page) {
 
 test.describe('FR-03 Forgot and reset password', () => {
   for (const caseData of cases) {
-    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }) => {
+    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }, testInfo) => {
       const createdUserIds = [];
+
+      if (caseData.likelyDefect) {
+        testInfo.annotations.push({
+          type: 'Expected SUT defect',
+          description: 'This assertion follows FR-03 and may fail on the current SUT.',
+        });
+      }
 
       try {
         if (caseData.operation === 'request_otp_ui') {

@@ -105,8 +105,15 @@ function formattedNumber(value) {
 
 test.describe('FR-09 Discount coupons', () => {
   for (const caseData of cases) {
-    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }) => {
+    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }, testInfo) => {
       const createdUserIds = [];
+
+      if (caseData.likelyDefect) {
+        testInfo.annotations.push({
+          type: 'Expected SUT defect',
+          description: 'This assertion follows FR-09 and may fail on the current SUT.',
+        });
+      }
 
       try {
         if (caseData.operation === 'apply_ui') {
@@ -177,16 +184,7 @@ test.describe('FR-09 Discount coupons', () => {
         if (caseData.operation === 'guest_rejected_ui') {
           await openCheckoutAsGuest(page);
           await submitCoupon(page, caseData.totalAmount, caseData.code);
-          await expect
-            .poll(async () => {
-              const atLogin = /\/login$/.test(page.url());
-              const hasError = await page
-                .getByText(new RegExp(caseData.expectedErrorPattern, 'i'))
-                .isVisible()
-                .catch(() => false);
-              return atLogin || hasError;
-            })
-            .toBe(true);
+          await expect(page).toHaveURL(/\/login$/);
           await expect(page.getByText(/Áp dụng thành công/i)).toHaveCount(0);
         }
 

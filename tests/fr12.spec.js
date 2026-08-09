@@ -83,8 +83,15 @@ async function cleanupCreatedData(request, createdData) {
 
 test.describe('FR-12 Admin access control', () => {
   for (const caseData of cases) {
-    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }) => {
+    test(`${caseData.id} - ${caseData.title}`, async ({ page, request }, testInfo) => {
       const createdData = { couponIds: [], productIds: [], categoryIds: [] };
+
+      if (caseData.likelyDefect) {
+        testInfo.annotations.push({
+          type: 'Expected SUT defect',
+          description: 'This assertion follows FR-12 and may fail on the current SUT.',
+        });
+      }
 
       try {
       if (caseData.operation === 'admin_login_ui') {
