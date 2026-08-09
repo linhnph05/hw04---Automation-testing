@@ -23,6 +23,14 @@ async function login(request, email, password) {
   return request.post(`${apiUrl}/login`, { data: { email, password } });
 }
 
+async function requestOtp(request, email) {
+  const response = await request.post(`${apiUrl}/forgot-password`, {
+    data: { email },
+  });
+  expect(response.ok()).toBeTruthy();
+  return (await response.json()).resetToken;
+}
+
 async function cleanupUsers(request, userIds) {
   if (userIds.length === 0) return;
   const loginResponse = await login(request, 'admin@eshop.com', 'Admin123!');
@@ -141,6 +149,53 @@ test.describe('FR-03 Forgot and reset password', () => {
           await expect(page).toHaveURL(/\/forgot-password$/);
           expect((await login(request, email, caseData.oldPassword)).ok()).toBeTruthy();
           expect((await login(request, email, caseData.newPassword)).status()).toBe(401);
+        }
+
+        if (caseData.operation === 'reset_mismatch_ui') {
+          const email = uniqueEmail(caseData.emailPrefix);
+          createdUserIds.push(await registerUser(request, email, caseData.oldPassword));
+          const otp = await requestOtpThroughUi(page, email);
+          const passwordInputs = page.locator('input[type="password"]');
+          expect(await passwordInputs.count()).toBe(2);
+          await page.getByRole('textbox').first().fill(otp);
+          await passwordInputs.first().fill(caseData.newPassword);
+          await passwordInputs.nth(1).fill(caseData.confirmPassword);
+          await page.getByRole('button', { name: 'Đặt lại mật khẩu' }).click();
+          await expect(page).toHaveURL(/\/forgot-password$/);
+          expect((await login(request, email, caseData.oldPassword)).ok()).toBeTruthy();
+        }
+
+        if (caseData.operation === 'wrong_otp_api') {
+          const email = uniqueEmail(caseData.emailPrefix);
+          createdUserIds.push(await registerUser(request, email, caseData.oldPassword));
+          await requestOtp(request, email);
+          const response = await request.post(`${apiUrl}/reset-password`, {
+            data: {
+              email,
+              resetToken: caseData.resetToken,
+              newPassword: caseData.newPassword,
+            },
+          });
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect((await login(request, email, caseData.oldPassword)).ok()).toBeTruthy();
+        }
+
+        if (caseData.operation === 'cross_email_otp_api') {
+          const firstEmail = uniqueEmail(caseData.firstEmailPrefix);
+          const secondEmail = uniqueEmail(caseData.secondEmailPrefix);
+          createdUserIds.push(await registerUser(request, firstEmail, caseData.oldPassword));
+          createdUserIds.push(await registerUser(request, secondEmail, caseData.oldPassword));
+          const firstOtp = await requestOtp(request, firstEmail);
+          const response = await request.post(`${apiUrl}/reset-password`, {
+            data: {
+              email: secondEmail,
+              resetToken: firstOtp,
+              newPassword: caseData.newPassword,
+            },
+          });
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect((await login(request, firstEmail, caseData.oldPassword)).ok()).toBeTruthy();
+          expect((await login(request, secondEmail, caseData.oldPassword)).ok()).toBeTruthy();
         }
       } finally {
         await cleanupUsers(request, createdUserIds);

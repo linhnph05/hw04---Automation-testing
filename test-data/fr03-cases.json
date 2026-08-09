@@ -49,5 +49,67 @@
     "newPassword": "newpass1!",
     "confirmPassword": "newpass1!",
     "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-07",
+    "title": "password without lowercase letter is rejected",
+    "operation": "reset_weak_ui",
+    "emailPrefix": "fr03_no_lower",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NEWPASS1!",
+    "confirmPassword": "NEWPASS1!",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-08",
+    "title": "password without a digit is rejected",
+    "operation": "reset_weak_ui",
+    "emailPrefix": "fr03_no_digit",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPassword!",
+    "confirmPassword": "NewPassword!",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-09",
+    "title": "password without a special character is rejected",
+    "operation": "reset_weak_ui",
+    "emailPrefix": "fr03_no_special",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPass12",
+    "confirmPassword": "NewPass12",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-10",
+    "title": "different password confirmation is rejected",
+    "operation": "reset_mismatch_ui",
+    "emailPrefix": "fr03_mismatch",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPass1!",
+    "confirmPassword": "OtherPass1!",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR03-TC-11",
+    "title": "incorrect OTP cannot reset the password",
+    "operation": "wrong_otp_api",
+    "emailPrefix": "fr03_wrong_otp",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPass1!",
+    "resetToken": "000000",
+    "expectedStatus": 400,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-12",
+    "title": "OTP cannot be used for another email",
+    "operation": "cross_email_otp_api",
+    "firstEmailPrefix": "fr03_owner",
+    "secondEmailPrefix": "fr03_other",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPass1!",
+    "expectedStatus": 400,
+    "likelyDefect": false
   }
 ]
