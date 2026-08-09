@@ -1,2 +1,6 @@
 __pycache__/
 .tokensave/
+node_modules/
+test-results/
+playwright-report/
+/eshop-sut/
