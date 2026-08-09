@@ -22,6 +22,21 @@ Use this workflow to turn written web requirements into reviewable multi-browser
 4. Define setup and cleanup for every stateful case.
 5. Avoid combining independent requirements merely to reduce setup.
 
+Use a small schema that maps directly to the test flow. Extend it only when the feature needs more fields:
+
+```json
+{
+  "id": "FR00-TC-01",
+  "title": "requirement-focused title",
+  "type": "positive|negative|edge|security",
+  "operation": "stable_branch_name",
+  "input": {},
+  "expectedStatus": 200,
+  "expectedMessagePattern": "string",
+  "likelyDefect": false
+}
+```
+
 ## 3. Generate and review feature drafts incrementally
 
 Request or write one feature draft at a time. Before accepting it:
@@ -42,6 +57,26 @@ Define Chromium, Firefox, and WebKit projects. Use one worker when the SUT has s
 
 Create one HTML report for each feature-browser pair. Put the required student or runner marker and a fresh ISO timestamp in the visible report title. Use separate output folders so later runs do not overwrite earlier evidence.
 
+Configure the reporter with a dynamic title and environment-selected folders:
+
+```javascript
+['html', {
+  open: 'never',
+  outputFolder: process.env.REPORT_DIR,
+  title: `Run by: ${runnerId} | ${new Date().toISOString()}`,
+}]
+```
+
+Run each pair independently, even when a previous pair fails:
+
+```bash
+REPORT_DIR=reports/html/fr00-chromium \
+RESULTS_DIR=test-results/fr00-chromium \
+npx playwright test tests/fr00.spec.js --project chromium
+```
+
+Repeat for Firefox and WebKit. A matrix wrapper must record a failed exit status but continue the remaining runs.
+
 ## 5. Execute from clean state
 
 1. Seed or reset the SUT through its supported setup process.
@@ -49,6 +84,8 @@ Create one HTML report for each feature-browser pair. Put the required student o
 3. Continue the matrix after requirement failures so all reports are produced.
 4. Confirm the expected number of report directories and test executions.
 5. Open each report in a real browser and verify the visible runner marker and timestamp.
+
+Automated Playwright inspection is acceptable for this visual check when it renders the report, reads visible body text after the client application loads, and saves a screenshot. Do not treat a source-file string search as visual verification.
 
 Treat consistent cross-browser requirement failures as defect candidates. Investigate browser-only differences as possible compatibility or automation problems.
 
@@ -60,12 +97,14 @@ For each distinct root cause:
 2. Attach a real report or failure screenshot.
 3. Avoid duplicate issues for the same defect across browsers.
 
-Document the AI workflow chronologically with tool name, time, prompt, output, mistakes found, and human corrections. State automation gaps and unmet administrative requirements honestly; never fabricate execution, video, timestamps, or Git dates.
+Use `screenshot: 'only-on-failure'` and `trace: 'retain-on-failure'`. Keep official HTML reports under `reports/html/<feature>-<browser>/` and selected issue screenshots under `evidence/`. Name evidence by feature and browser.
+
+Document the AI workflow chronologically with tool name, ISO time and timezone, prompt, output, mistakes found, and human corrections. If the platform does not expose per-message time, say that and label nearby times as approximate. State automation gaps and unmet administrative requirements honestly; never fabricate execution, video, timestamps, or Git dates.
 
 ## Completion checks
 
 - External data files contain the requested number of cases.
-- At least three assertion patterns are present.
+- At least three assertion patterns are present, such as visibility/count, exact status/value, text/regex, URL, object structure, or negative state checks.
 - Every feature ran on all required browsers.
 - Each report visibly contains runner identity and ISO time.
 - Failures are classified as SUT defects, automation defects, or environment problems.
