@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Automation Workflow"
+  short_description: "Build reviewed, data-driven browser test matrices"
+  default_prompt: "Use $playwright-automation-workflow to build and review a data-driven multi-browser Playwright suite."
