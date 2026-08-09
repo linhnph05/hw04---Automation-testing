@@ -1,3 +1,2 @@
-.browserstack.env
 __pycache__/
-evidence/task3/*.json
+.tokensave/
