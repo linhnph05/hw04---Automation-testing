@@ -1,0 +1,59 @@
+[
+  {
+    "id": "FR12-TC-01",
+    "title": "admin account can open the admin dashboard",
+    "operation": "admin_login_ui",
+    "email": "admin@eshop.com",
+    "password": "Admin123!",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR12-TC-02",
+    "title": "normal user cannot open the admin dashboard",
+    "operation": "user_login_ui",
+    "email": "test@eshop.com",
+    "password": "Test1234!",
+    "expectedAlertPattern": "không phải là admin",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR12-TC-03",
+    "title": "admin token can read the admin user list",
+    "operation": "authorized_get",
+    "actor": "admin",
+    "method": "GET",
+    "path": "/admin/users",
+    "expectedStatus": 200,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR12-TC-04",
+    "title": "missing token cannot read the admin user list",
+    "operation": "denied_request",
+    "actor": "guest",
+    "method": "GET",
+    "path": "/admin/users",
+    "expectedStatus": 401,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR12-TC-05",
+    "title": "invalid token cannot read the admin user list",
+    "operation": "denied_request",
+    "actor": "invalidToken",
+    "method": "GET",
+    "path": "/admin/users",
+    "expectedStatus": 403,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR12-TC-06",
+    "title": "normal user token cannot read the admin user list",
+    "operation": "denied_request",
+    "actor": "user",
+    "method": "GET",
+    "path": "/admin/users",
+    "expectedStatus": 403,
+    "likelyDefect": true
+  }
+]
