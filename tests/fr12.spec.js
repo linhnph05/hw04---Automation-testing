@@ -6,9 +6,11 @@ const cases = JSON.parse(
 );
 const adminWebUrl = 'http://localhost:5174';
 const apiUrl = 'http://localhost:3000/api';
+let fixtureCounter = 0;
 
 function uniqueValue(prefix) {
-  return `${prefix}_${Date.now()}`;
+  fixtureCounter += 1;
+  return `${prefix}_${Date.now()}_${fixtureCounter}`;
 }
 
 function authHeaders(token) {
@@ -127,7 +129,10 @@ test.describe('FR-12 Admin access control', () => {
       if (caseData.operation === 'denied_request') {
         const headers = await headersForActor(request, caseData.actor);
         const response = await sendRequest(request, caseData, headers);
-        expect(response.status()).toBe(caseData.expectedStatus);
+        expect.soft(response.status()).toBe(caseData.expectedStatus);
+        if (caseData.method === 'GET') {
+          expect(await response.json()).not.toEqual(expect.any(Array));
+        }
       }
 
       if (caseData.operation === 'denied_coupon_create') {

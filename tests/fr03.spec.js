@@ -6,9 +6,11 @@ const cases = JSON.parse(
 );
 const webUrl = 'http://localhost:5173';
 const apiUrl = 'http://localhost:3000/api';
+let emailCounter = 0;
 
 function uniqueEmail(prefix) {
-  return `${prefix}-${Date.now()}@test.local`;
+  emailCounter += 1;
+  return `${prefix}-${Date.now()}-${emailCounter}@test.local`;
 }
 
 async function registerUser(request, email, password) {

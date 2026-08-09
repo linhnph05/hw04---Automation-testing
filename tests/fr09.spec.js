@@ -6,9 +6,11 @@ const cases = JSON.parse(
 );
 const webUrl = 'http://localhost:5173';
 const apiUrl = 'http://localhost:3000/api';
+let fixtureCounter = 0;
 
 function uniqueValue(prefix) {
-  return `${prefix}_${Date.now()}`;
+  fixtureCounter += 1;
+  return `${prefix}_${Date.now()}_${fixtureCounter}`;
 }
 
 function authHeaders(token) {
