@@ -55,5 +55,72 @@
     "path": "/admin/users",
     "expectedStatus": 403,
     "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-07",
+    "title": "normal user token cannot read admin orders",
+    "operation": "denied_request",
+    "actor": "user",
+    "method": "GET",
+    "path": "/admin/orders",
+    "expectedStatus": 403,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-08",
+    "title": "normal user token cannot create an admin coupon",
+    "operation": "denied_coupon_create",
+    "actor": "user",
+    "method": "POST",
+    "path": "/admin/coupons",
+    "expectedStatus": 403,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-09",
+    "title": "normal user token cannot delete an admin coupon",
+    "operation": "denied_request",
+    "actor": "user",
+    "method": "DELETE",
+    "path": "/admin/coupons/999999",
+    "expectedStatus": 403,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-10",
+    "title": "guest cannot create a product",
+    "operation": "denied_product_create",
+    "actor": "guest",
+    "method": "POST",
+    "path": "/products",
+    "expectedStatus": 401,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-11",
+    "title": "guest cannot update a product",
+    "operation": "denied_request",
+    "actor": "guest",
+    "method": "PUT",
+    "path": "/products/999999",
+    "body": {
+      "name": "Unauthorized Update",
+      "price": 100000,
+      "description": "This update must be rejected",
+      "imageUrl": "",
+      "category_id": 1
+    },
+    "expectedStatus": 401,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR12-TC-12",
+    "title": "normal user token cannot create a category",
+    "operation": "denied_category_create",
+    "actor": "user",
+    "method": "POST",
+    "path": "/categories",
+    "expectedStatus": 403,
+    "likelyDefect": true
   }
 ]

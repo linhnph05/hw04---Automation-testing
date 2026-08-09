@@ -7,6 +7,10 @@ const cases = JSON.parse(
 const adminWebUrl = 'http://localhost:5174';
 const apiUrl = 'http://localhost:3000/api';
 
+function uniqueValue(prefix) {
+  return `${prefix}_${Date.now()}`;
+}
+
 function authHeaders(token) {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
@@ -61,9 +65,28 @@ function nextDialogMessage(page) {
   });
 }
 
+async function cleanupCreatedData(request, createdData) {
+  const hasFixtures = Object.values(createdData).some((ids) => ids.length > 0);
+  if (!hasFixtures) return;
+  const headers = await headersForActor(request, 'admin');
+
+  for (const id of createdData.couponIds) {
+    await request.delete(`${apiUrl}/admin/coupons/${id}`, { headers });
+  }
+  for (const id of createdData.productIds) {
+    await request.delete(`${apiUrl}/products/${id}`, { headers });
+  }
+  for (const id of createdData.categoryIds) {
+    await request.delete(`${apiUrl}/categories/${id}`, { headers });
+  }
+}
+
 test.describe('FR-12 Admin access control', () => {
   for (const caseData of cases) {
     test(`${caseData.id} - ${caseData.title}`, async ({ page, request }) => {
+      const createdData = { couponIds: [], productIds: [], categoryIds: [] };
+
+      try {
       if (caseData.operation === 'admin_login_ui') {
         await openCleanAdminLogin(page);
         await fillAdminLogin(page, caseData.email, caseData.password);
@@ -98,6 +121,55 @@ test.describe('FR-12 Admin access control', () => {
         const headers = await headersForActor(request, caseData.actor);
         const response = await sendRequest(request, caseData, headers);
         expect(response.status()).toBe(caseData.expectedStatus);
+      }
+
+      if (caseData.operation === 'denied_coupon_create') {
+        const headers = await headersForActor(request, caseData.actor);
+        const response = await request.post(`${apiUrl}${caseData.path}`, {
+          headers,
+          data: {
+            code: uniqueValue('SEC_COUPON'),
+            type: 'fixed',
+            discount_value: 10000,
+            min_order_amount: 100000,
+            expired_at: '2099-12-31',
+            max_uses_per_user: 1,
+          },
+        });
+        const body = await response.json().catch(() => ({}));
+        if (response.ok() && body.id) createdData.couponIds.push(body.id);
+        expect(response.status()).toBe(caseData.expectedStatus);
+      }
+
+      if (caseData.operation === 'denied_product_create') {
+        const headers = await headersForActor(request, caseData.actor);
+        const response = await request.post(`${apiUrl}${caseData.path}`, {
+          headers,
+          data: {
+            name: uniqueValue('SEC_PRODUCT'),
+            price: 100000,
+            description: 'Unauthorized security fixture',
+            imageUrl: '',
+            category_id: 1,
+          },
+        });
+        const body = await response.json().catch(() => ({}));
+        if (response.ok() && body.id) createdData.productIds.push(body.id);
+        expect(response.status()).toBe(caseData.expectedStatus);
+      }
+
+      if (caseData.operation === 'denied_category_create') {
+        const headers = await headersForActor(request, caseData.actor);
+        const response = await request.post(`${apiUrl}${caseData.path}`, {
+          headers,
+          data: { name: uniqueValue('SEC_CATEGORY') },
+        });
+        const body = await response.json().catch(() => ({}));
+        if (response.ok() && body.id) createdData.categoryIds.push(body.id);
+        expect(response.status()).toBe(caseData.expectedStatus);
+      }
+      } finally {
+        await cleanupCreatedData(request, createdData);
       }
     });
   }
