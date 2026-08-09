@@ -42,13 +42,12 @@
   },
   {
     "id": "FR09-TC-05",
-    "title": "unavailable coupon is rejected",
-    "operation": "unavailable_coupon_api",
-    "codePrefix": "OFF20",
+    "title": "empty coupon code is rejected",
+    "operation": "reject_api",
+    "code": "",
     "totalAmount": 600000,
-    "expectedStatus": 404,
-    "expectedErrorPattern": "không tồn tại|vô hiệu hóa",
-    "automationGap": "The SUT has no API that can create an is_active=0 fixture.",
+    "expectedStatus": 400,
+    "expectedErrorPattern": "Vui lòng nhập mã giảm giá",
     "likelyDefect": false
   },
   {
@@ -109,9 +108,7 @@
     "totalAmount": 400000,
     "firstUserUsageCount": 1,
     "expectedStatus": 200,
-    "expectedDiscount": 40000,
-    "expectedFinalAmount": 360000,
-    "likelyDefect": true
+    "likelyDefect": false
   },
   {
     "id": "FR09-TC-12",

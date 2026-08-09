@@ -39,11 +39,12 @@ async function headersForActor(request, actor) {
 }
 
 async function sendRequest(request, caseData, headers) {
-  return request.fetch(`${apiUrl}${caseData.path}`, {
+  const options = {
     method: caseData.method,
     headers,
-    data: caseData.body,
-  });
+  };
+  if (caseData.body !== undefined) options.data = caseData.body;
+  return request.fetch(`${apiUrl}${caseData.path}`, options);
 }
 
 async function openCleanAdminLogin(page) {
@@ -150,7 +151,10 @@ test.describe('FR-12 Admin access control', () => {
         });
         const body = await response.json().catch(() => ({}));
         if (response.ok() && body.id) createdData.couponIds.push(body.id);
-        expect(response.status()).toBe(caseData.expectedStatus);
+        expect.soft(response.status()).toBe(caseData.expectedStatus);
+        const adminHeaders = await headersForActor(request, 'admin');
+        const coupons = await request.get(`${apiUrl}/coupons`, { headers: adminHeaders });
+        expect((await coupons.json()).some((coupon) => coupon.id === body.id)).toBe(false);
       }
 
       if (caseData.operation === 'denied_product_create') {
@@ -167,7 +171,9 @@ test.describe('FR-12 Admin access control', () => {
         });
         const body = await response.json().catch(() => ({}));
         if (response.ok() && body.id) createdData.productIds.push(body.id);
-        expect(response.status()).toBe(caseData.expectedStatus);
+        expect.soft(response.status()).toBe(caseData.expectedStatus);
+        const products = await request.get(`${apiUrl}/products`);
+        expect((await products.json()).some((product) => product.id === body.id)).toBe(false);
       }
 
       if (caseData.operation === 'denied_category_create') {
@@ -178,7 +184,9 @@ test.describe('FR-12 Admin access control', () => {
         });
         const body = await response.json().catch(() => ({}));
         if (response.ok() && body.id) createdData.categoryIds.push(body.id);
-        expect(response.status()).toBe(caseData.expectedStatus);
+        expect.soft(response.status()).toBe(caseData.expectedStatus);
+        const categories = await request.get(`${apiUrl}/categories`);
+        expect((await categories.json()).some((category) => category.id === body.id)).toBe(false);
       }
       } finally {
         await cleanupCreatedData(request, createdData);

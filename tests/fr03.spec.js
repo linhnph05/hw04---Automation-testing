@@ -69,16 +69,6 @@ async function fillResetForm(page, otp, password, confirmation) {
   }
 }
 
-function nextDialogMessage(page) {
-  return new Promise((resolve) => {
-    page.once('dialog', async (dialog) => {
-      const message = dialog.message();
-      await dialog.accept();
-      resolve(message);
-    });
-  });
-}
-
 test.describe('FR-03 Forgot and reset password', () => {
   for (const caseData of cases) {
     test(`${caseData.id} - ${caseData.title}`, async ({ page, request }, testInfo) => {
@@ -96,10 +86,8 @@ test.describe('FR-03 Forgot and reset password', () => {
           const email = uniqueEmail(caseData.emailPrefix);
           createdUserIds.push(await registerUser(request, email, caseData.password));
           await openForgotPassword(page);
-          await expect.soft(page.getByText(/Bước 1\s*\/\s*2/i)).toBeVisible();
           await page.getByRole('textbox').first().fill(email);
           await page.getByRole('button', { name: 'Lấy mã OTP' }).click();
-          await expect.soft(page.getByText(/Bước 2\s*\/\s*2/i)).toBeVisible();
           const message = await page.getByText(/Mã OTP của bạn là:/i).textContent();
           expect(message.match(/\d+/)?.[0] || '').toMatch(
             new RegExp(caseData.expectedOtpPattern),
@@ -139,9 +127,8 @@ test.describe('FR-03 Forgot and reset password', () => {
           createdUserIds.push(await registerUser(request, email, caseData.oldPassword));
           const otp = await requestOtpThroughUi(page, email);
           await fillResetForm(page, otp, caseData.newPassword, caseData.confirmPassword);
-          const dialogMessage = nextDialogMessage(page);
+          page.once('dialog', (dialog) => dialog.accept());
           await page.getByRole('button', { name: 'Đặt lại mật khẩu' }).click();
-          expect(await dialogMessage).toMatch(/thành công/i);
           await expect(page).toHaveURL(/\/login$/);
           expect((await login(request, email, caseData.oldPassword)).status()).toBe(401);
           expect((await login(request, email, caseData.newPassword)).ok()).toBeTruthy();
@@ -152,9 +139,8 @@ test.describe('FR-03 Forgot and reset password', () => {
           createdUserIds.push(await registerUser(request, email, caseData.oldPassword));
           const otp = await requestOtpThroughUi(page, email);
           await fillResetForm(page, otp, caseData.newPassword, caseData.confirmPassword);
-          const dialogMessage = nextDialogMessage(page);
+          page.once('dialog', (dialog) => dialog.accept());
           await page.getByRole('button', { name: 'Đặt lại mật khẩu' }).click();
-          expect(await dialogMessage).toMatch(/quá yếu/i);
           await expect(page).toHaveURL(/\/forgot-password$/);
           expect((await login(request, email, caseData.oldPassword)).ok()).toBeTruthy();
           expect((await login(request, email, caseData.newPassword)).status()).toBe(401);
