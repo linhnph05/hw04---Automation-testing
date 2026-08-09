@@ -1,0 +1,35 @@
+HW04 Git commit log snapshot
+Student: Nguyen Phan Hung Linh (23127081)
+Generated: 2026-08-09T16:45:00+07:00
+Format: short hash | author date | author | subject
+
+Note: HW04 contains more than eight commits that change .spec.js files, but those
+qualifying commits were made on one calendar day. Dates were not fabricated.
+
+929baae | 2026-08-09T16:44:42+07:00 | linhnph05 | Generate and verify submission PDFs
+08d619d | 2026-08-09T16:38:48+07:00 | linhnph05 | Refine automation skill after forward test
+4f17264 | 2026-08-09T16:37:43+07:00 | linhnph05 | Add reports audit narration and reusable skill
+c54a867 | 2026-08-09T16:29:20+07:00 | linhnph05 | Document reproduced automation defects
+26aa9c6 | 2026-08-09T16:28:00+07:00 | linhnph05 | Add verified multi-browser HTML reports
+46bcfd7 | 2026-08-09T16:16:56+07:00 | linhnph05 | Refine AI drafts after human review
+dc6361e | 2026-08-09T16:14:26+07:00 | linhnph05 | Harden fixture IDs and denied-response checks
+3f85ab1 | 2026-08-09T16:13:21+07:00 | linhnph05 | Review defect annotations and guest coupon assertion
+eff1e81 | 2026-08-09T16:11:49+07:00 | linhnph05 | Complete FR-12 access control coverage
+d87a242 | 2026-08-09T16:10:34+07:00 | linhnph05 | Add first FR-12 access control tests
+fb146b6 | 2026-08-09T16:07:29+07:00 | linhnph05 | Complete FR-09 coupon coverage
+853c3d5 | 2026-08-09T16:05:56+07:00 | linhnph05 | Add first FR-09 coupon tests
+40e3409 | 2026-08-09T16:01:37+07:00 | linhnph05 | Complete FR-03 data-driven coverage
+d10fa85 | 2026-08-09T16:00:08+07:00 | linhnph05 | Add first FR-03 password reset tests
+7bc9132 | 2026-08-09T15:57:47+07:00 | linhnph05 | Set up Playwright browser matrix
+9f4db09 | 2026-08-09T15:01:43+07:00 | linhnph05 | Add README.md and remove unused files
+b758278 | 2026-08-02T16:05:27+07:00 | linhnph05 | Record supplied shared GUI checklist
+4a40fad | 2026-08-02T16:04:47+07:00 | linhnph05 | Update test procedure log
+f7fcb31 | 2026-08-02T16:04:47+07:00 | linhnph05 | Test B1 on iOS Safari phone
+5636a0c | 2026-08-02T16:03:49+07:00 | linhnph05 | Document Scenario B GUI and compatibility results
+fe5d408 | 2026-08-02T16:02:43+07:00 | linhnph05 | Test B3 on Windows 11 Chrome desktop
+6a8eb11 | 2026-08-02T16:02:43+07:00 | linhnph05 | Test B2 on Windows 11 Chrome desktop
+d5b4e48 | 2026-08-02T16:02:29+07:00 | linhnph05 | Test B1 on iOS Safari tablet
+6011c0e | 2026-08-02T15:53:50+07:00 | linhnph05 | Test B1 on Windows 11 Edge desktop
+c111910 | 2026-08-02T15:48:24+07:00 | linhnph05 | Test B1 on macOS Firefox desktop
+12f6fa9 | 2026-08-02T15:47:25+07:00 | linhnph05 | Test B1 on Windows 11 Chrome desktop
+7e78710 | 2026-08-02T15:42:46+07:00 | linhnph05 | Initialize Scenario B test workspace
