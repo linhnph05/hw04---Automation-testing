@@ -59,7 +59,7 @@ The failures are consistent across all three engines. This consistency and the r
 | Used CommonJS `require` in an ESM project | Converted all drafts to `import` and file-based JSON parsing | The model followed common Playwright examples without checking project configuration |
 | FR-03 TC-01 mixed OTP length with step indicators | Kept OTP format as the single primary assertion; TC-02 owns navigation controls | The model tried to reduce repeated setup and combined requirements |
 | Relied on alert wording for reset results | Accepted dialogs without using their exact text and verified URL/login state | The model copied the current UI instead of testing the stable business result |
-| Guest coupon lookup matched the permanent navbar text `Đăng nhập` | Replaced the broad text poll with a direct login-URL expectation | The locator was not scoped to the coupon result area |
+| Guest coupon lookup matched the permanent login link | Replaced the broad text poll with a direct login-URL expectation | The locator was not scoped to the coupon result area |
 | Pretended a deleted coupon represented an inactive coupon | Replaced it with a real empty-code case and documented the inactive-fixture gap | No public API can create `is_active = 0` |
 | Sent `user_id` on normal coupon calls | Normal calls now rely on JWT identity; only the spoofing case sends another ID | The model followed the buggy client contract too closely |
 | Mixed per-user isolation with broken percent arithmetic | TC-11 now asserts successful isolation only; TC-01 owns exact percent math | One case had two independent failure reasons |
