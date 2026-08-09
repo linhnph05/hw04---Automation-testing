@@ -1,0 +1,53 @@
+[
+  {
+    "id": "FR03-TC-01",
+    "title": "registered user receives a six-digit OTP",
+    "operation": "request_otp_ui",
+    "emailPrefix": "fr03_otp",
+    "password": "OldPass1!",
+    "expectedOtpPattern": "^\\d{6}$",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR03-TC-02",
+    "title": "step one displays its indicator and login navigation",
+    "operation": "inspect_step_one_ui",
+    "expectedBackText": "Quay lại đăng nhập",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR03-TC-03",
+    "title": "unknown email cannot request an OTP",
+    "operation": "request_unknown_api",
+    "email": "missing-fr03@test.local",
+    "expectedErrorPattern": "User not found|không tồn tại",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR03-TC-04",
+    "title": "malformed email is rejected by the form",
+    "operation": "invalid_email_ui",
+    "email": "not-an-email",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR03-TC-05",
+    "title": "correct OTP and strong matching password reset the account",
+    "operation": "reset_success_ui",
+    "emailPrefix": "fr03_success",
+    "oldPassword": "OldPass1!",
+    "newPassword": "NewPass1!",
+    "confirmPassword": "NewPass1!",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR03-TC-06",
+    "title": "password without uppercase letter is rejected",
+    "operation": "reset_weak_ui",
+    "emailPrefix": "fr03_no_upper",
+    "oldPassword": "OldPass1!",
+    "newPassword": "newpass1!",
+    "confirmPassword": "newpass1!",
+    "likelyDefect": false
+  }
+]
