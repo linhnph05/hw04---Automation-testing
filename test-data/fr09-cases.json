@@ -1,0 +1,63 @@
+[
+  {
+    "id": "FR09-TC-01",
+    "title": "SAVE10 applies a ten-percent discount",
+    "operation": "apply_ui",
+    "code": "SAVE10",
+    "totalAmount": 400000,
+    "expectedDiscount": 40000,
+    "expectedFinalAmount": 360000,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR09-TC-02",
+    "title": "BIGBUY applies a fixed discount",
+    "operation": "apply_api",
+    "code": "BIGBUY",
+    "totalAmount": 600000,
+    "expectedStatus": 200,
+    "expectedDiscount": 50000,
+    "expectedFinalAmount": 550000,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-03",
+    "title": "VIP100 applies when the user has remaining uses",
+    "operation": "apply_api",
+    "code": "VIP100",
+    "totalAmount": 400000,
+    "expectedStatus": 200,
+    "expectedDiscount": 100000,
+    "expectedFinalAmount": 300000,
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-04",
+    "title": "unknown coupon is rejected",
+    "operation": "reject_ui",
+    "code": "DOESNOTEXIST",
+    "totalAmount": 600000,
+    "expectedErrorPattern": "không tồn tại|vô hiệu hóa",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-05",
+    "title": "unavailable coupon is rejected",
+    "operation": "unavailable_coupon_api",
+    "codePrefix": "OFF20",
+    "totalAmount": 600000,
+    "expectedStatus": 404,
+    "expectedErrorPattern": "không tồn tại|vô hiệu hóa",
+    "automationGap": "The SUT has no API that can create an is_active=0 fixture.",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-06",
+    "title": "expired coupon is rejected",
+    "operation": "reject_ui",
+    "code": "EXPIRED",
+    "totalAmount": 600000,
+    "expectedErrorPattern": "hết hạn",
+    "likelyDefect": false
+  }
+]
