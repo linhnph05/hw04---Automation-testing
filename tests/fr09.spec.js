@@ -60,11 +60,37 @@ async function applyCoupon(request, user, caseData) {
   });
 }
 
+async function getCoupon(request, token, code) {
+  const response = await request.get(`${apiUrl}/coupons`, {
+    headers: authHeaders(token),
+  });
+  expect(response.ok()).toBeTruthy();
+  const coupon = (await response.json()).find((item) => item.code === code);
+  expect(coupon).toBeTruthy();
+  return coupon;
+}
+
+async function recordUsage(request, token, couponId, count) {
+  for (let index = 0; index < count; index += 1) {
+    const response = await request.post(`${apiUrl}/coupon-usage`, {
+      headers: authHeaders(token),
+      data: { coupon_id: couponId },
+    });
+    expect(response.ok()).toBeTruthy();
+  }
+}
+
 async function openCheckout(page, token) {
   await page.addInitScript((value) => localStorage.setItem('token', value), token);
   await page.goto(`${webUrl}/checkout`);
   await expect(page.getByRole('heading', { name: 'Xác Nhận Đơn Hàng' })).toBeVisible();
   await expect(page.getByText(/Chào,/)).toBeVisible();
+}
+
+async function openCheckoutAsGuest(page) {
+  await page.addInitScript(() => localStorage.removeItem('token'));
+  await page.goto(`${webUrl}/checkout`);
+  await expect(page.getByRole('heading', { name: 'Xác Nhận Đơn Hàng' })).toBeVisible();
 }
 
 async function submitCoupon(page, totalAmount, code) {
@@ -130,6 +156,92 @@ test.describe('FR-09 Discount coupons', () => {
               code: uniqueValue(caseData.codePrefix),
               total_amount: caseData.totalAmount,
               user_id: user.id,
+            },
+          });
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect((await response.json()).error).toMatch(
+            new RegExp(caseData.expectedErrorPattern, 'i'),
+          );
+        }
+
+        if (caseData.operation === 'reject_api') {
+          const user = await createUser(request, 'fr09_reject_api');
+          createdUserIds.push(user.id);
+          const response = await applyCoupon(request, user, caseData);
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect((await response.json()).error).toMatch(
+            new RegExp(caseData.expectedErrorPattern, 'i'),
+          );
+        }
+
+        if (caseData.operation === 'guest_rejected_ui') {
+          await openCheckoutAsGuest(page);
+          await submitCoupon(page, caseData.totalAmount, caseData.code);
+          await expect
+            .poll(async () => {
+              const atLogin = /\/login$/.test(page.url());
+              const hasError = await page
+                .getByText(new RegExp(caseData.expectedErrorPattern, 'i'))
+                .isVisible()
+                .catch(() => false);
+              return atLogin || hasError;
+            })
+            .toBe(true);
+          await expect(page.getByText(/Áp dụng thành công/i)).toHaveCount(0);
+        }
+
+        if (caseData.operation === 'exhausted_user_api') {
+          const user = await createUser(request, 'fr09_exhausted');
+          createdUserIds.push(user.id);
+          const coupon = await getCoupon(request, user.token, caseData.code);
+          await recordUsage(request, user.token, coupon.id, caseData.priorUsageCount);
+          const response = await applyCoupon(request, user, caseData);
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect((await response.json()).error).toMatch(
+            new RegExp(caseData.expectedErrorPattern, 'i'),
+          );
+        }
+
+        if (caseData.operation === 'second_user_api') {
+          const firstUser = await createUser(request, 'fr09_first');
+          const secondUser = await createUser(request, 'fr09_second');
+          createdUserIds.push(firstUser.id, secondUser.id);
+          const coupon = await getCoupon(request, firstUser.token, caseData.code);
+          await recordUsage(
+            request,
+            firstUser.token,
+            coupon.id,
+            caseData.firstUserUsageCount,
+          );
+          const response = await applyCoupon(request, secondUser, caseData);
+          expect(response.status()).toBe(caseData.expectedStatus);
+          expect(await response.json()).toMatchObject({
+            discount_amount: caseData.expectedDiscount,
+            final_amount: caseData.expectedFinalAmount,
+          });
+        }
+
+        if (caseData.operation === 'spoofed_user_api') {
+          const authenticatedUser = await createUser(request, 'fr09_authenticated');
+          const secondUser = await createUser(request, 'fr09_spoof_target');
+          createdUserIds.push(authenticatedUser.id, secondUser.id);
+          const coupon = await getCoupon(
+            request,
+            authenticatedUser.token,
+            caseData.code,
+          );
+          await recordUsage(
+            request,
+            authenticatedUser.token,
+            coupon.id,
+            caseData.authenticatedUserUsageCount,
+          );
+          const response = await request.post(`${apiUrl}/apply-coupon`, {
+            headers: authHeaders(authenticatedUser.token),
+            data: {
+              code: caseData.code,
+              total_amount: caseData.totalAmount,
+              user_id: secondUser.id,
             },
           });
           expect(response.status()).toBe(caseData.expectedStatus);

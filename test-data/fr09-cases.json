@@ -59,5 +59,69 @@
     "totalAmount": 600000,
     "expectedErrorPattern": "hết hạn",
     "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-07",
+    "title": "order below the minimum is rejected",
+    "operation": "reject_api",
+    "code": "BIGBUY",
+    "totalAmount": 499999,
+    "expectedStatus": 400,
+    "expectedErrorPattern": "chưa đủ giá trị tối thiểu",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-08",
+    "title": "order exactly at the minimum is accepted",
+    "operation": "apply_api",
+    "code": "BIGBUY",
+    "totalAmount": 500000,
+    "expectedStatus": 200,
+    "expectedDiscount": 50000,
+    "expectedFinalAmount": 450000,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR09-TC-09",
+    "title": "guest cannot apply a coupon",
+    "operation": "guest_rejected_ui",
+    "code": "BIGBUY",
+    "totalAmount": 600000,
+    "expectedErrorPattern": "đăng nhập|không được phép|unauthorized",
+    "likelyDefect": true
+  },
+  {
+    "id": "FR09-TC-10",
+    "title": "user cannot exceed the coupon usage limit",
+    "operation": "exhausted_user_api",
+    "code": "SAVE10",
+    "totalAmount": 400000,
+    "priorUsageCount": 1,
+    "expectedStatus": 400,
+    "expectedErrorPattern": "đạt giới hạn",
+    "likelyDefect": false
+  },
+  {
+    "id": "FR09-TC-11",
+    "title": "usage limit is isolated per user",
+    "operation": "second_user_api",
+    "code": "SAVE10",
+    "totalAmount": 400000,
+    "firstUserUsageCount": 1,
+    "expectedStatus": 200,
+    "expectedDiscount": 40000,
+    "expectedFinalAmount": 360000,
+    "likelyDefect": true
+  },
+  {
+    "id": "FR09-TC-12",
+    "title": "body user ID cannot bypass authenticated user usage limit",
+    "operation": "spoofed_user_api",
+    "code": "SAVE10",
+    "totalAmount": 400000,
+    "authenticatedUserUsageCount": 1,
+    "expectedStatus": 400,
+    "expectedErrorPattern": "đạt giới hạn",
+    "likelyDefect": true
   }
 ]
