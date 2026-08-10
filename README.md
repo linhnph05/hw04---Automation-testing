@@ -44,9 +44,9 @@ Every HTML report visibly contains `Run by: 23127081` and an ISO timestamp. Repo
 ## Run instructions
 
 1. Start the EShop backend, web frontend, and admin frontend on ports 3000, 5173, and 5174.
-2. Install dependencies with `rtk npm install`.
-3. Install browsers with `rtk proxy npx playwright install chromium firefox webkit`.
-4. Run all tests in Chromium, Firefox, and WebKit with `rtk npm run test:matrix`.
+2. Install dependencies with `npm install`.
+3. Install browsers with `npx playwright install chromium firefox webkit`.
+4. Run all tests in Chromium, Firefox, and WebKit with `npm run test:matrix`.
 
 The command returns a non-zero exit code because some tests expose real SUT defects.
 

@@ -14,8 +14,8 @@ Video chưa được quay theo phạm vi yêu cầu của người dùng. Kịch
 Chạy:
 
 ```bash
-rtk proxy whoami
-rtk proxy hostname
+whoami
+hostname
 ```
 
 Lời nói gợi ý:
@@ -45,9 +45,9 @@ Chỉ vào test `FR09-TC-09`.
 Chạy từng lệnh để tạo ba report riêng:
 
 ```bash
-rtk proxy env REPORT_DIR=reports/demo/fr09-chromium RESULTS_DIR=test-results/demo-fr09-chromium npx playwright test tests/fr09.spec.js --project chromium
-rtk proxy env REPORT_DIR=reports/demo/fr09-firefox RESULTS_DIR=test-results/demo-fr09-firefox npx playwright test tests/fr09.spec.js --project firefox
-rtk proxy env REPORT_DIR=reports/demo/fr09-webkit RESULTS_DIR=test-results/demo-fr09-webkit npx playwright test tests/fr09.spec.js --project webkit
+REPORT_DIR=reports/demo/fr09-chromium RESULTS_DIR=test-results/demo-fr09-chromium npx playwright test tests/fr09.spec.js --project chromium
+REPORT_DIR=reports/demo/fr09-firefox RESULTS_DIR=test-results/demo-fr09-firefox npx playwright test tests/fr09.spec.js --project firefox
+REPORT_DIR=reports/demo/fr09-webkit RESULTS_DIR=test-results/demo-fr09-webkit npx playwright test tests/fr09.spec.js --project webkit
 ```
 
 Trong lúc chạy, giải thích:
@@ -59,7 +59,7 @@ Trong lúc chạy, giải thích:
 Chạy:
 
 ```bash
-rtk proxy npx playwright show-report reports/demo/fr09-chromium
+npx playwright show-report reports/demo/fr09-chromium
 ```
 
 Lời nói gợi ý:
