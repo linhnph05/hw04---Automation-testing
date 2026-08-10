@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "playwright test",
-    "test:matrix": "node scripts/run-matrix.mjs"
+    "test:matrix": "playwright test --project=chromium --project=firefox --project=webkit"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.2"

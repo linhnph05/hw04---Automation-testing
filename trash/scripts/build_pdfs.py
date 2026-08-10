@@ -18,7 +18,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 
-root = Path(__file__).resolve().parents[1]
+root = Path(__file__).resolve().parents[2]
 output_dir = root / "output" / "pdf"
 output_dir.mkdir(parents=True, exist_ok=True)
 
