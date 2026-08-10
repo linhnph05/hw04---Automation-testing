@@ -5,11 +5,11 @@
 **Features:** FR-03, FR-09, FR-12  
 **Total:** 36 test cases
 
-This is the text-format version of the test design. The matching executable data is stored in `test-data/fr03-cases.json`, `test-data/fr09-cases.json`, and `test-data/fr12-cases.json`. Expected results follow the written requirements, even when the current SUT violates them.
+This file lists the 36 test cases in a readable format. Playwright uses the matching data in `test-data/fr03-cases.json`, `test-data/fr09-cases.json`, and `test-data/fr12-cases.json`. Expected results follow the requirements, even when the current SUT is wrong.
 
 ## FR-03 - Forgot password and password reset
 
-Common setup: The EShop API and customer web application are running. Tests that need an account create a unique user before execution and delete it afterward.
+Setup: The EShop API and customer web application are running. Tests that need an account create a unique user before execution and delete it afterward.
 
 | ID | Preconditions and input | Test actions | Expected result |
 | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ Common setup: The EShop API and customer web application are running. Tests that
 
 ## FR-09 - Discount coupons
 
-Common setup: Seed coupons are available. Authenticated cases create unique users and delete them afterward. Amounts are in VND.
+Setup: Seed coupons are available. Authenticated cases create unique users and delete them afterward. Amounts are in VND.
 
 | ID | Preconditions and input | Test actions | Expected result |
 | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ Common setup: Seed coupons are available. Authenticated cases create unique user
 
 ## FR-12 - Admin access control
 
-Common setup: The backend and admin frontend are running. Admin credentials are `admin@eshop.com` / `Admin123!`; normal-user credentials are `test@eshop.com` / `Test1234!`. Mutation tests check stored state and clean up data created by the defective SUT.
+Setup: The backend and admin frontend are running. Admin credentials are `admin@eshop.com` / `Admin123!`; normal-user credentials are `test@eshop.com` / `Test1234!`. Tests check that blocked data is not saved. They delete any data that the faulty SUT saves.
 
 | ID | Preconditions and input | Test actions | Expected result |
 | --- | --- | --- | --- |
@@ -63,7 +63,3 @@ Common setup: The backend and admin frontend are running. Admin credentials are 
 | FR12-TC-10 | Guest; unique product data | Send `POST /api/products`, then query products. | Status `401` and the product is not stored. |
 | FR12-TC-11 | Guest; product ID `999999` and update body | Send `PUT /api/products/999999`. | Status `401`; an unauthenticated caller cannot update a product. |
 | FR12-TC-12 | Normal-user token; unique category data | Send `POST /api/categories`, then query categories. | Status `403` and the category is not stored. |
-
-## Traceability
-
-Every row maps directly to a Playwright test title with the same ID in `tests/fr03.spec.js`, `tests/fr09.spec.js`, or `tests/fr12.spec.js`. The scripts read their inputs from the three JSON datasets instead of duplicating hardcoded case arrays.
