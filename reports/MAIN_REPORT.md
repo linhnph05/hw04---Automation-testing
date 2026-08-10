@@ -13,11 +13,9 @@ I automated these three web features:
 - Pool B - FR-09: Discount coupons.
 - Pool C - FR-12: Admin access control.
 
-The local `eshop-sut` directory was treated as read-only. Tests and evidence are stored in the homework repository, so the suite does not hide defects by changing the SUT.
-
 ## 2. Method
 
-I used a staged AI-first workflow. I first asked another Codex agent to inspect the requirements and source. Next, I asked it to design exactly 12 cases per feature. Only after reviewing those cases did I request a Playwright draft for one feature at a time. I converted the drafts from CommonJS to the repository's ES module format, corrected weak assumptions, ran a Chromium baseline, asked the agent to critique its own drafts, and then made a final human-review pass.
+I used a staged AI-first workflow. I first asked an Codex agent to inspect the requirements and source. Next, I asked it to design exactly 12 cases per feature. Only after reviewing those cases did I request a Playwright draft for one feature at a time. I converted the drafts from CommonJS to the repository's ES module format, corrected weak assumptions, ran a Chromium baseline, asked the agent to critique its own drafts, and then made a final human-review pass.
 
 The course notes recommend data-driven tests, role-based locators, web-first assertions, isolated state, API setup, and multi-browser execution. The final suite follows these points:
 
@@ -32,7 +30,7 @@ The course notes recommend data-driven tests, role-based locators, web-first ass
 
 Each JSON file contains 12 rows, giving 36 test cases. Across three browser projects, this produces 108 executions.
 
-All 36 cases are also documented with their type, layer, preconditions, input, actions, and expected result in [TEST_CASES.md](TEST_CASES.md). This is the human-readable text version of the test design; the JSON files remain the data sources used by Playwright.
+All 36 cases are also documented with their preconditions, input, actions, and expected result in [TEST_CASES.md](TEST_CASES.md). This is the human-readable text version of the test design; the JSON files remain the data sources used by Playwright.
 
 The suite uses more than three assertion patterns, including:
 
