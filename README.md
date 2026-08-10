@@ -6,6 +6,14 @@
 - Features: FR-03, FR-09, FR-12
 - Framework: Playwright JavaScript
 
+## Start here
+
+1. Read this README for the project summary.
+2. Open [`reports/MAIN_REPORT.md`](reports/MAIN_REPORT.md) for the full assignment report.
+3. Open [`reports/AI_AUDIT_REPORT.md`](reports/AI_AUDIT_REPORT.md) for the conversation log with the separate collaborating AI.
+4. Open [`reports/html/fr03-chromium/index.html`](reports/html/fr03-chromium/index.html) for a sample execution report.
+5. Use `23127081_HW04_AI_Automation_085.zip` for Moodle submission.
+
 ## Test summary
 
 | Metric | Result |
@@ -45,7 +53,7 @@ The matrix returns a non-zero exit code because the suite intentionally asserts 
 ## Deliverables
 
 - [Main report](reports/MAIN_REPORT.md)
-- [AI audit report](reports/AI_AUDIT_REPORT.md)
+- [AI audit report with the separate collaborating AI](reports/AI_AUDIT_REPORT.md)
 - [AI critique](reports/AI_CRITIQUE.md)
 - [Bug report](reports/BUG_REPORT.md)
 - [Video narration](reports/VIDEO_NARRATION_VI.md)

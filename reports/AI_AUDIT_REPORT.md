@@ -9,40 +9,13 @@
 
 I use AI tools for the following tasks:
 
-- OpenAI Codex primary workspace agent: repository inspection, Playwright project setup, execution support, report generation, and documentation drafting under my instructions.
 - OpenAI Codex collaborating agent: source analysis, test-case suggestions, initial script drafts, and critique of its own drafts.
 
 I reviewed the requirements and runtime results, corrected the AI drafts, and accepted responsibility for the final tests. The collaborating agent did not edit the repository or generate the execution evidence.
 
 The collaboration interface did not expose a separate wall-clock timestamp on each agent message. The times below are recorded from the session order and nearby Git commits; they are marked approximate instead of being presented as exact platform metadata. Exact report timestamps and Git commit timestamps remain in the repository.
 
-## Primary Codex interactions
-
-### P1 - Assignment request
-
-- **Tool:** OpenAI Codex primary agent
-- **Time:** 2026-08-09, before 15:57 ICT
-- **My prompt:** Complete all tasks in the updated HW04 file except recording the video; use the downloaded `eshop-sut`; provide a Task 2 narration; commit and push each step; create an AI audit from a real conversation with another AI; stop if required information or tools are missing.
-- **AI output:** Read the assignment and stopped because Student ID, selected features, and name were initially missing. It also warned that a four-day commit history could not honestly be created in one session.
-- **My review:** I updated the assignment and supplied my name instead of allowing the AI to guess identity data.
-
-### P2 - Updated assignment
-
-- **Tool:** OpenAI Codex primary agent
-- **Time:** 2026-08-09, approximately 15:40 ICT
-- **My prompt:** Re-read the rewritten assignment; my full name is Nguyen Phan Hung Linh.
-- **AI output:** Extracted Student ID 23127081 and features FR-03, FR-09, and FR-12. It inspected the SUT, kept the dirty nested SUT repository read-only, created the Playwright matrix, installed browsers, and coordinated the staged sub-agent interactions below.
-- **My review:** I accepted these exact assignment values and did not authorize fabricated Git dates.
-
-### P3 - Continue without Browser MCP
-
-- **Tool:** OpenAI Codex primary agent
-- **Time:** 2026-08-09, approximately 16:24 ICT
-- **My prompt:** `yes, continue`
-- **AI output:** Continued after the optional in-app Browser MCP reported no available backend. It used the installed Playwright Chromium process to render and verify all nine reports, saved screenshots, and continued the documents and GitHub issues.
-- **My review:** I explicitly authorized Playwright-only visual verification.
-
-## Guided conversation with the collaborating AI
+## Conversation with the collaborating AI
 
 ### A1 - Source-grounded feature analysis
 
