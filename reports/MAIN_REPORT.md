@@ -7,7 +7,7 @@
 
 ## 1. Scope and feature selection
 
-I automated the three assigned web features:
+I automated these three web features:
 
 - Pool A - FR-03: Forgot password and reset password.
 - Pool B - FR-09: Discount coupons.
@@ -31,6 +31,8 @@ The course notes recommend data-driven tests, role-based locators, web-first ass
 ## 3. Automated cases and assertion patterns
 
 Each JSON file contains 12 rows, giving 36 test cases. Across three browser projects, this produces 108 executions.
+
+All 36 cases are also documented with their type, layer, preconditions, input, actions, and expected result in [TEST_CASES.md](TEST_CASES.md). This is the human-readable text version of the test design; the JSON files remain the data sources used by Playwright.
 
 The suite uses more than three assertion patterns, including:
 
