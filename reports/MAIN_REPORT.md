@@ -31,6 +31,35 @@ The suite uses more than three assertion patterns, including:
 5. Check object values with `toMatchObject()`.
 6. Check rejected actions with `not.toEqual()` and confirm that blocked data was not saved.
 
+### How to run the tests
+
+Start the backend, customer website, and admin website on ports 3000, 5173, and 5174. Then install the project packages and browsers:
+
+```bash
+npm install
+npx playwright install chromium firefox webkit
+```
+
+Run one feature in Chromium:
+
+```bash
+npx playwright test tests/fr03.spec.js --project=chromium
+```
+
+Run all tests in one browser:
+
+```bash
+npx playwright test --project=chromium
+```
+
+Run all 36 cases in Chromium, Firefox, and WebKit:
+
+```bash
+npm run test:matrix
+```
+
+Some tests fail because they find real SUT defects. Playwright saves the new HTML report in `playwright-report/`.
+
 ## 4. Execution results
 
 | Feature | Chromium | Firefox | WebKit | Total passed | Total failed |
@@ -46,15 +75,15 @@ The results are the same in all three browsers. This means the failures are like
 
 | AI draft problem | My correction | Why the AI missed it |
 | --- | --- | --- |
-| Used CommonJS `require` in an ES module project | Changed the drafts to `import` and loaded JSON from files | The AI used a common Playwright example without checking the project settings |
+| Used CommonJS `require` in an ES module project | Changed the drafts to `import` and JSON files | The AI used an example without checking the project settings |
 | FR-03 TC-01 checked OTP length and step controls together | TC-01 now checks the OTP only; TC-02 checks the controls | The AI combined two requirements into one case |
 | Used exact alert text to check password reset | Accepted the alert and checked the URL and login result | Alert text can change and is not the main result |
 | Guest coupon test matched the Login link in the menu | Checked the redirect to the Login page instead | The AI did not limit the locator to the coupon result area |
-| Used a deleted coupon as an inactive coupon | Replaced it with a real empty-code case | The API cannot create a coupon with `is_active = 0` |
-| Sent `user_id` in normal coupon requests | Normal requests now use the user from the JWT token | The AI copied the unsafe behavior of the current client |
+| Used a deleted coupon as an inactive coupon | Replaced it with an empty-code case | The API has no inactive-coupon setup |
+| Sent `user_id` in normal coupon requests | Used the user from the JWT token | The AI copied unsafe client behavior |
 | Checked user isolation and percentage math in one case | TC-11 checks user isolation; TC-01 checks percentage math | One case had two different reasons to fail |
-| FR-12 tests checked only the HTTP status | Also checked that blocked products, categories, and coupons were not saved | The first draft did not check database effects |
-| Used only `Date.now()` for fixture names | Added a counter to stop duplicate names | Tests can create two fixtures in the same millisecond |
+| FR-12 tests checked only the HTTP status | Checked that blocked data was not saved | The first draft did not check saved data |
+| Used only `Date.now()` for fixture names | Added a counter to stop duplicate names | Two fixtures can be made in one millisecond |
 
 ## 6. Defects found
 
