@@ -1,35 +1,281 @@
-HW04 Git commit log snapshot
-Student: Nguyen Phan Hung Linh (23127081)
-Generated: 2026-08-09T16:45:00+07:00
-Format: short hash | author date | author | subject
+commit 8534d52d28ccce4a9f3142a61e0849c82baa488b
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 08:44:46 2026 +0700
 
-Note: HW04 contains more than eight commits that change .spec.js files, but those
-qualifying commits were made on one calendar day. Dates were not fabricated.
+    Rename evidence folder to images
 
-929baae | 2026-08-09T16:44:42+07:00 | linhnph05 | Generate and verify submission PDFs
-08d619d | 2026-08-09T16:38:48+07:00 | linhnph05 | Refine automation skill after forward test
-4f17264 | 2026-08-09T16:37:43+07:00 | linhnph05 | Add reports audit narration and reusable skill
-c54a867 | 2026-08-09T16:29:20+07:00 | linhnph05 | Document reproduced automation defects
-26aa9c6 | 2026-08-09T16:28:00+07:00 | linhnph05 | Add verified multi-browser HTML reports
-46bcfd7 | 2026-08-09T16:16:56+07:00 | linhnph05 | Refine AI drafts after human review
-dc6361e | 2026-08-09T16:14:26+07:00 | linhnph05 | Harden fixture IDs and denied-response checks
-3f85ab1 | 2026-08-09T16:13:21+07:00 | linhnph05 | Review defect annotations and guest coupon assertion
-eff1e81 | 2026-08-09T16:11:49+07:00 | linhnph05 | Complete FR-12 access control coverage
-d87a242 | 2026-08-09T16:10:34+07:00 | linhnph05 | Add first FR-12 access control tests
-fb146b6 | 2026-08-09T16:07:29+07:00 | linhnph05 | Complete FR-09 coupon coverage
-853c3d5 | 2026-08-09T16:05:56+07:00 | linhnph05 | Add first FR-09 coupon tests
-40e3409 | 2026-08-09T16:01:37+07:00 | linhnph05 | Complete FR-03 data-driven coverage
-d10fa85 | 2026-08-09T16:00:08+07:00 | linhnph05 | Add first FR-03 password reset tests
-7bc9132 | 2026-08-09T15:57:47+07:00 | linhnph05 | Set up Playwright browser matrix
-9f4db09 | 2026-08-09T15:01:43+07:00 | linhnph05 | Add README.md and remove unused files
-b758278 | 2026-08-02T16:05:27+07:00 | linhnph05 | Record supplied shared GUI checklist
-4a40fad | 2026-08-02T16:04:47+07:00 | linhnph05 | Update test procedure log
-f7fcb31 | 2026-08-02T16:04:47+07:00 | linhnph05 | Test B1 on iOS Safari phone
-5636a0c | 2026-08-02T16:03:49+07:00 | linhnph05 | Document Scenario B GUI and compatibility results
-fe5d408 | 2026-08-02T16:02:43+07:00 | linhnph05 | Test B3 on Windows 11 Chrome desktop
-6a8eb11 | 2026-08-02T16:02:43+07:00 | linhnph05 | Test B2 on Windows 11 Chrome desktop
-d5b4e48 | 2026-08-02T16:02:29+07:00 | linhnph05 | Test B1 on iOS Safari tablet
-6011c0e | 2026-08-02T15:53:50+07:00 | linhnph05 | Test B1 on Windows 11 Edge desktop
-c111910 | 2026-08-02T15:48:24+07:00 | linhnph05 | Test B1 on macOS Firefox desktop
-12f6fa9 | 2026-08-02T15:47:25+07:00 | linhnph05 | Test B1 on Windows 11 Chrome desktop
-7e78710 | 2026-08-02T15:42:46+07:00 | linhnph05 | Initialize Scenario B test workspace
+commit d2145af013be768238f84508cacd9b511523fc9d
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:46:34 2026 +0700
+
+    Include GitHub issue screenshots in submission archive
+
+commit 0a54141a3108f25c2484a45fea9dd17c128b2824
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:45:47 2026 +0700
+
+    Add GitHub issue page screenshots to bug report
+
+commit 36a61fe0863b7c17df3671f6324d3879a7674dff
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:34:16 2026 +0700
+
+    Refresh archive with standard commands
+
+commit 6f8d2075eb2c07574a041891bdb971d977daa7bc
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:31:36 2026 +0700
+
+    Use standard commands in submission instructions
+
+commit 3ba52325baaf86dd15c0aa13852659c7d6c90536
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:16:43 2026 +0700
+
+    Exclude trash materials from submission archive
+
+commit 942bad4f17c02cc07a6407d9ece1dfae6f08dcab
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:15:30 2026 +0700
+
+    Document single and multi-browser test commands
+
+commit c4def53b4a6b686d6896b93f2deaa6655d5cd924
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 01:15:13 2026 +0700
+
+    Move non-submission helpers into trash
+
+commit 9d281827d7bd776da7cb164e99fbcd5df1c10a26
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 00:55:06 2026 +0700
+
+    Refresh submission with simplified reports
+
+commit 6c5406c2af6861a582a70ddbaf16b493ef03db3e
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 00:54:32 2026 +0700
+
+    Simplify English in supporting reports
+
+commit 8ce958f99ab247f45be0a684f9993f8ef80f5179
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 00:42:09 2026 +0700
+
+    Refresh submission with simplified main report
+
+commit 8ebe234d209d868a7a410017da27fcdc3ff2f94e
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 00:41:13 2026 +0700
+
+    Simplify main report and remove sections
+
+commit 73925cc254e026877f4a7c95f47b7d0f611c0c61
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 23:20:14 2026 +0700
+
+    Refresh submission after test case table update
+
+commit 474a534ba6ecb5c8271e37efc180eafd56a84d70
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 23:19:41 2026 +0700
+
+    Remove type column from test case specification
+
+commit d478cf7ddf907dd25a8b454b0e2ca66a330b2126
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 23:01:20 2026 +0700
+
+    Include text test cases in submission archive
+
+commit 244a7b6868b548a0617e1ec999606a3208ad18df
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 23:00:52 2026 +0700
+
+    Add human-readable test case specification
+
+commit e1e84c7f3e7fd3480036a79e1cc64f4f6cb47e0e
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 22:26:52 2026 +0700
+
+    Refresh HW04 submission archive
+
+commit 191d91965fceb9b81f3eeef89b0550ebd60703b1
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Mon Aug 10 22:25:43 2026 +0700
+
+    Remove primary Codex conversation from AI audit
+
+commit 10ca689c6389f5e29981d2683ee524c45bdc25c8
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:49:22 2026 +0700
+
+    Package HW04 submission archive
+
+commit 1371a0899e41983c018db71b323bee4dd9bf4f2b
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:47:50 2026 +0700
+
+    Add truthful Git commit log snapshot
+
+commit 929baaee1d6ade2593ce752992d0cf62018ebb3b
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:44:42 2026 +0700
+
+    Generate and verify submission PDFs
+
+commit 08d619d8d5f47ec1f14b93a09aa3fad8e9a661ca
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:38:48 2026 +0700
+
+    Refine automation skill after forward test
+
+commit 4f172645f1829a085cfa3c1b2e82ee007789d941
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:37:43 2026 +0700
+
+    Add reports audit narration and reusable skill
+
+commit c54a86786735aab21c7b6692a6bdc4477d0220cc
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:29:20 2026 +0700
+
+    Document reproduced automation defects
+
+commit 26aa9c692da53af2b9ae1a661f3aa8a50f93326c
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:28:00 2026 +0700
+
+    Add verified multi-browser HTML reports
+
+commit 46bcfd7ef1b4eccf3232b6cc867d3f93d6dedc2e
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:16:56 2026 +0700
+
+    Refine AI drafts after human review
+
+commit dc6361eaabe71408b4a70a99683560745098844d
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:14:26 2026 +0700
+
+    Harden fixture IDs and denied-response checks
+
+commit 3f85ab1321e92ebdd4e670efeb7917dcb5b2f494
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:13:21 2026 +0700
+
+    Review defect annotations and guest coupon assertion
+
+commit eff1e8189f8b79b444d8b54a55384bccce997421
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:11:49 2026 +0700
+
+    Complete FR-12 access control coverage
+
+commit d87a242f323ebaa8b19898154f6b6a02222a2409
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:10:34 2026 +0700
+
+    Add first FR-12 access control tests
+
+commit fb146b6009e7ef0e0f933ec20b2460d453c25d73
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:07:29 2026 +0700
+
+    Complete FR-09 coupon coverage
+
+commit 853c3d5a66d27bddff09b75ad4f6602302452222
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:05:56 2026 +0700
+
+    Add first FR-09 coupon tests
+
+commit 40e34099f34dc37bb2d8e8e0efacf94dbd2333dc
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:01:37 2026 +0700
+
+    Complete FR-03 data-driven coverage
+
+commit d10fa8526cce535471af07f17085c807ddba6298
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 16:00:08 2026 +0700
+
+    Add first FR-03 password reset tests
+
+commit 7bc91329d59ddf53304cf68e9e799c3366004813
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 15:57:47 2026 +0700
+
+    Set up Playwright browser matrix
+
+commit 9f4db096fe4017097344b5db162e9634b9315b75
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 9 15:01:43 2026 +0700
+
+    Add README.md and remove unused files
+
+commit b758278c37601bac3cdba5a0d381bf01e04eb7b2
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:05:27 2026 +0700
+
+    Record supplied shared GUI checklist
+
+commit 4a40fadf7644aca471f4414782321b7a4b160962
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:04:47 2026 +0700
+
+    Update test procedure log
+
+commit f7fcb31bfc49c6128389655938210c49efe62eb7
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:04:47 2026 +0700
+
+    Test B1 on iOS Safari phone
+
+commit 5636a0cc6cd87cb6fe960c0c2de1b3db8a839d2e
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:03:49 2026 +0700
+
+    Document Scenario B GUI and compatibility results
+
+commit fe5d408696aa6ea0f096234fa3ed8473d307b32b
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:02:43 2026 +0700
+
+    Test B3 on Windows 11 Chrome desktop
+
+commit 6a8eb110b797517394b8c8a06cce1cf0c6ced091
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:02:43 2026 +0700
+
+    Test B2 on Windows 11 Chrome desktop
+
+commit d5b4e48abb301a4970c15c55a580cfac12d5153a
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 16:02:29 2026 +0700
+
+    Test B1 on iOS Safari tablet
+
+commit 6011c0e9a57b4ca06e097418847c4dc79847c4da
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 15:53:50 2026 +0700
+
+    Test B1 on Windows 11 Edge desktop
+
+commit c111910b87de6a84c1b68834790d9c2902525996
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 15:48:24 2026 +0700
+
+    Test B1 on macOS Firefox desktop
+
+commit 12f6fa91c9cbf954bb72e874b8429e64d09ea614
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 15:47:25 2026 +0700
+
+    Test B1 on Windows 11 Chrome desktop
+
+commit 7e78710a1cfd89abb9352d6fd444d517c3cb007b
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Sun Aug 2 15:42:46 2026 +0700
+
+    Initialize Scenario B test workspace
