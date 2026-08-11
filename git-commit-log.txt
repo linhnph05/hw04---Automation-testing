@@ -1,3 +1,21 @@
+commit 7e9b49cc4ad3fc15ebd31c0cf27e8e27a4a5fd9f
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:03:53 2026 +0700
+
+    Add FR-03 demo video link
+
+commit 3e6bfddd891d88bade2dccc6d42df43f8ae79208
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 10:03:59 2026 +0700
+
+    Refresh submission with FR-03 narration
+
+commit afd71663b44e25d20a629f6b92373d6246edda34
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 10:03:39 2026 +0700
+
+    Refresh raw Git commit log after narration update
+
 commit 39adfd7d1c79a5728440c68ff6bf3cd908c10caa
 Author: linhnph05 <linhnph05@gmail.com>
 Date:   Tue Aug 11 10:03:20 2026 +0700
