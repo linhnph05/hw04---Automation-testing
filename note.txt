@@ -1,45 +1,59 @@
-Summary of user prompts
+do the task in the file 2026.HW04.Automation Testing_En.md, you will act like a human, a third-year software engineering student doing the task. you can spawn additional codex process and use another ai/model to help you. remember, you are a human, and you can use other ai to help you. do all the task in that file, beside recording the video. then for each step commit and push to https://github.com/linhnph05/hw04---Automation-testing. 
+write ai audit report also, remember you have to generate the ai report/log from your conversation with another ai. remember! you are a human who are guiding another ai.
+i have download the eshop-sut for you at folder eshop-sut/
+also for task 2, don't record the video. just give me a narration script and instructions step-by-step
+you can use other mcp like chrome-mcp and chrome-devtools to test and take screenshots
+important! if missing any tool or any information. just stop immediately and tell me
 
-1. Complete all tasks in 2026.HW04.Automation Testing_En.md except recording the video. Work as a third-year software engineering student, use other AI help, create an AI audit report from the conversation with another AI, commit and push each step, and use the provided eshop-sut folder.
+read the file /Users/nguyenphanthangthong/hacking/ctf/learning/hw03/2026.HW04.Automation Testing_En.md again, i have rewrite it and add more information.
+also my full name is Nguyen Phan Hung Linh
 
-2. Read the rewritten assignment file again and use the full name Nguyen Phan Hung Linh.
+yes, continue
 
-3. Continue the assignment work.
+- in ai audit report, don't include conversation between me and you.
+- also there is so much files, which file to start first
 
-4. Do not include the conversation between the student and Codex in the AI audit report. Also explain which file should be opened first because the repository contains many files.
+where is your scripts
 
-5. Show where the automation scripts are located.
+where are test case you design
 
-6. Show where the designed test cases are located.
+you have to include the test case as in text format
 
-7. Include all designed test cases in a readable text format.
+in test_cases.md, remove the type column
 
-8. Remove the Type column from TEST_CASES.md.
+in the main report.md file, remove the 7th and 9th section. also other section, try to use simple english
 
-9. Remove sections 7 and 9 from the main report and use simple English in the remaining sections.
+- make other report files to be in simple english too
+- also delete unused files
 
-10. Use simple English in the other report files and delete unused files.
+does the test-results/ folder and tmp/ need when submit the assignment. if not delete it. 
+yes the video narration.md file keep remain vietnamese
 
-11. Delete test-results/ and tmp/ if they are not needed for submission. Keep the video narration file in Vietnamese.
+how about the scripts/ folder, what is the role of it
 
-12. Explain the purpose of the scripts/ folder.
+make a trash/ directory that contain script, draft that will not submit in the zip file. for example the scripts/ directory, the bugs/ directory.
+and in the main report, show command how to run the test, and how to run test across 3 browser
 
-13. Create trash/ for scripts, drafts, and bugs that should not be submitted. Add commands to the main report for running tests normally and across Chromium, Firefox, and WebKit.
+remove any "rtk" prefix, it is just a tool to reduce the token. like just "npm install" instead of "rkt npm install"
 
-14. Remove every rtk prefix from commands shown in the reports.
+also the bug report.md file missing the screenshot of the github issue page of each issue, use chrome-mcp to take the screenshot
 
-15. Add screenshots of each real GitHub Issue page to BUG_REPORT.md by using an available browser screenshot tool.
+yes, any tool to take screenshot of each issue page
 
-16. Make git-commit-log.txt contain only raw git log command output. Rename evidence/ to images/ and update every report path that mentions it.
+- the git log file need to be from the output of git log command, don't write anything else
+- also change the evidence/ folder to images/ folder and change report file that mention it
 
-17. Change the Vietnamese video narration and instructions to demonstrate FR-03 instead of FR-09.
+make the narration video to be demo on feature 03 instead
 
-18. Add the YouTube demo link https://youtu.be/0_eAjZnRr1o to the submission files.
+add this youtube video link: https://youtu.be/0_eAjZnRr1o
 
-19. Move each PDF beside its related Markdown report in reports/. Keep VIDEO_NARRATION_VI.md in the repository but exclude it from the submission ZIP.
+- put the pdf to be in the same folder as the report markdown file
+- don't include the video narration .md file in the .zip file
 
-20. Update the final self-assessment score to 100/100.
+update the score to 100/100
 
-21. Rename the submission archive so its filename ends in _100.zip.
+remember to update the zip file name to 100
 
-22. Create note.txt containing a summary of all user prompts.
+ok summary all prompt i prompt you in a note.txt file
+
+don't summary, raw prompt
