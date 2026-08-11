@@ -19,7 +19,7 @@ from reportlab.platypus import (
 )
 
 root = Path(__file__).resolve().parents[2]
-output_dir = root / "output" / "pdf"
+output_dir = root / "reports"
 output_dir.mkdir(parents=True, exist_ok=True)
 
 pdfmetrics.registerFont(
