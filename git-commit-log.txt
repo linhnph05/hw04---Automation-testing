@@ -1,3 +1,21 @@
+commit 8728e480d608c504fb74911fab136dbdb4253d11
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 14:07:09 2026 +0700
+
+    Add summary of assignment prompts
+
+commit 14594ced88e22626e4b0ce660aa737be4906927c
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:24:08 2026 +0700
+
+    Rename submission archive for 100 point score
+
+commit fb69f9f9e2d2d6d54af380e5fd85c5cdf382c16f
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:23:47 2026 +0700
+
+    Refresh raw Git commit log after score update
+
 commit ab162801880b3ceb68dd87afe1e4e4d8a362824a
 Author: linhnph05 <linhnph05@gmail.com>
 Date:   Tue Aug 11 12:23:29 2026 +0700
