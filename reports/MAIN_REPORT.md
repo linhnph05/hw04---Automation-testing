@@ -2,7 +2,8 @@
 
 **Student:** Nguyen Phan Hung Linh  
 **Student ID:** 23127081  
-**Repository:** https://github.com/linhnph05/hw04---Automation-testing
+**Repository:** https://github.com/linhnph05/hw04---Automation-testing  
+**Demo video:** https://youtu.be/0_eAjZnRr1o
 
 ## 1. Scope and feature selection
 

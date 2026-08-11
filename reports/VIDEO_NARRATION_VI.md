@@ -1,6 +1,8 @@
 # Kịch bản thuyết minh và hướng dẫn quay video
 
-Video chưa được quay theo phạm vi yêu cầu của người dùng. Kịch bản dưới đây dài khoảng 6-7 phút và dùng FR-03 để minh họa.
+Video demo FR-03: https://youtu.be/0_eAjZnRr1o
+
+Kịch bản dưới đây dài khoảng 6-7 phút và dùng FR-03 để minh họa.
 
 ## Chuẩn bị
 

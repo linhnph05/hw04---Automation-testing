@@ -26,7 +26,7 @@
 | Feature-browser runs | 9 |
 | Browser engines | Chromium, Firefox, WebKit |
 | GitHub bug issues | 8 |
-| Demo video | Not recorded as requested; [Vietnamese narration and recording instructions](reports/VIDEO_NARRATION_VI.md) are provided |
+| Demo video | [YouTube - FR-03 automation demo](https://youtu.be/0_eAjZnRr1o) |
 
 Every HTML report visibly contains `Run by: 23127081` and an ISO timestamp. Reports are under [`reports/html`](reports/html).
 
@@ -37,9 +37,9 @@ Every HTML report visibly contains `Run by: 23127081` and an ISO timestamp. Repo
 | 1 | Task 1 - FR-03 | 25 | 25 |
 | 2 | Task 1 - FR-09 | 25 | 25 |
 | 3 | Task 1 - FR-12 | 25 | 25 |
-| 4 | Task 2 - Demo video | 15 | 0 |
+| 4 | Task 2 - Demo video | 15 | 15 |
 | 5 | Reusable automation skill | 10 | 10 |
-|  | **Total** | **100** | **85** |
+|  | **Total** | **100** | **100** |
 
 ## Run instructions
 
