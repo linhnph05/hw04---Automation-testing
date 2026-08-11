@@ -1,3 +1,21 @@
+commit f2f5e8678bb9eb130ffcf1ec40e512e6a77cb0af
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:09:29 2026 +0700
+
+    Move report PDFs beside Markdown files
+
+commit 71f1cc3afce0aa82a5936710c2eac222aa2b0482
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:04:31 2026 +0700
+
+    Refresh submission with demo video link
+
+commit b8c03852ab17d9d6b60a94ac6b7d792a64f5ac12
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 12:04:07 2026 +0700
+
+    Refresh raw Git commit log after video link
+
 commit 7e9b49cc4ad3fc15ebd31c0cf27e8e27a4a5fd9f
 Author: linhnph05 <linhnph05@gmail.com>
 Date:   Tue Aug 11 12:03:53 2026 +0700
