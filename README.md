@@ -41,6 +41,8 @@ Every HTML report visibly contains `Run by: 23127081` and an ISO timestamp. Repo
 | 5 | Reusable automation skill | 10 | 10 |
 |  | **Total** | **100** | **100** |
 
+**Final self-assessment score: 100/100**
+
 ## Run instructions
 
 1. Start the EShop backend, web frontend, and admin frontend on ports 3000, 5173, and 5174.
