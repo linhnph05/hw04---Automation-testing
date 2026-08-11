@@ -1,3 +1,21 @@
+commit 07d00ff7996eec0471ce38336df9118e7a0ad4e1
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 14:09:16 2026 +0700
+
+    Replace prompt summary with raw user prompts
+
+commit 5cf1fa61907a015db664325d9529d0a1b5246d8f
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 14:07:39 2026 +0700
+
+    Add prompt summary to submission archive
+
+commit d11ad43cb13a82a4598bb48222a0dd53236172bc
+Author: linhnph05 <linhnph05@gmail.com>
+Date:   Tue Aug 11 14:07:22 2026 +0700
+
+    Refresh raw Git commit log after prompt summary
+
 commit 8728e480d608c504fb74911fab136dbdb4253d11
 Author: linhnph05 <linhnph05@gmail.com>
 Date:   Tue Aug 11 14:07:09 2026 +0700
