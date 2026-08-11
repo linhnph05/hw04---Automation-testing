@@ -97,7 +97,7 @@ For each distinct root cause:
 2. Attach a real report or failure screenshot.
 3. Avoid duplicate issues for the same defect across browsers.
 
-Use `screenshot: 'only-on-failure'` and `trace: 'retain-on-failure'`. Keep official HTML reports under `reports/html/<feature>-<browser>/` and selected issue screenshots under `evidence/`. Name evidence by feature and browser.
+Use `screenshot: 'only-on-failure'` and `trace: 'retain-on-failure'`. Keep official HTML reports under `reports/html/<feature>-<browser>/` and selected issue screenshots under `images/`. Name images by feature and browser.
 
 Document the AI workflow chronologically with tool name, ISO time and timezone, prompt, output, mistakes found, and human corrections. If the platform does not expose per-message time, say that and label nearby times as approximate. State automation gaps and unmet administrative requirements honestly; never fabricate execution, video, timestamps, or Git dates.
 

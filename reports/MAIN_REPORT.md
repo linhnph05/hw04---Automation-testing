@@ -98,7 +98,7 @@ Issue links, screenshots, and test mappings are in [BUG_REPORT.md](BUG_REPORT.md
 ## 7. Report evidence
 
 - HTML reports: `reports/html/<feature>-<browser>/index.html`.
-- Visual summaries: `evidence/*-chromium-report.png`.
+- Visual summaries: `images/*-chromium-report.png`.
 - Failed tests include a Playwright trace and screenshot in the HTML report.
 
 ## 8. Conclusion

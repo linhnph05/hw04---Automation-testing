@@ -16,4 +16,4 @@ The guest request is rejected. User A cannot bypass the limit by changing a body
 
 Guest coupon application succeeds. The backend also trusts `user_id` from the request body and allows the limit to be bypassed. Reproduced by `FR09-TC-09`, `FR09-TC-10`, and `FR09-TC-12`.
 
-![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/evidence/fr09-chromium-report.png)
+![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/images/fr09-chromium-report.png)

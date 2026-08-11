@@ -17,4 +17,4 @@ The OTP contains six digits.
 
 The application generates and displays a four-digit OTP. Reproduced in Chromium, Firefox, and WebKit by `FR03-TC-01`.
 
-![FR-03 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/evidence/fr03-chromium-report.png)
+![FR-03 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/images/fr03-chromium-report.png)

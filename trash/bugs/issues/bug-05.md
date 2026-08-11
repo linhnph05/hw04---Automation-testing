@@ -15,4 +15,4 @@ The coupon is accepted and the final amount is `450,000 ₫`.
 
 The API returns HTTP 400 and says the total is below the minimum. Reproduced by `FR09-TC-08` on all three browser projects.
 
-![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/evidence/fr09-chromium-report.png)
+![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/images/fr09-chromium-report.png)

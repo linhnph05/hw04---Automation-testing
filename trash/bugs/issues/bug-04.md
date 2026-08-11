@@ -16,4 +16,4 @@ Discount is `40,000 ₫`; final amount is `360,000 ₫`.
 
 The UI displays a negative `-3,600,000 ₫` saving and a `4,000,000 ₫` final amount. Reproduced by `FR09-TC-01` on all three browsers.
 
-![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/evidence/fr09-chromium-report.png)
+![FR-09 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/images/fr09-chromium-report.png)

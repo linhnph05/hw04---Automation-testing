@@ -19,32 +19,32 @@ The same results appeared in Chromium, Firefox, and WebKit. The table links to t
 
 ### BUG-01 - GitHub Issue #3
 
-![BUG-01 GitHub Issue #3](../evidence/github-issues/bug-01-issue-3.png)
+![BUG-01 GitHub Issue #3](../images/github-issues/bug-01-issue-3.png)
 
 ### BUG-02 - GitHub Issue #4
 
-![BUG-02 GitHub Issue #4](../evidence/github-issues/bug-02-issue-4.png)
+![BUG-02 GitHub Issue #4](../images/github-issues/bug-02-issue-4.png)
 
 ### BUG-03 - GitHub Issue #7
 
-![BUG-03 GitHub Issue #7](../evidence/github-issues/bug-03-issue-7.png)
+![BUG-03 GitHub Issue #7](../images/github-issues/bug-03-issue-7.png)
 
 ### BUG-04 - GitHub Issue #8
 
-![BUG-04 GitHub Issue #8](../evidence/github-issues/bug-04-issue-8.png)
+![BUG-04 GitHub Issue #8](../images/github-issues/bug-04-issue-8.png)
 
 ### BUG-05 - GitHub Issue #5
 
-![BUG-05 GitHub Issue #5](../evidence/github-issues/bug-05-issue-5.png)
+![BUG-05 GitHub Issue #5](../images/github-issues/bug-05-issue-5.png)
 
 ### BUG-06 - GitHub Issue #2
 
-![BUG-06 GitHub Issue #2](../evidence/github-issues/bug-06-issue-2.png)
+![BUG-06 GitHub Issue #2](../images/github-issues/bug-06-issue-2.png)
 
 ### BUG-07 - GitHub Issue #6
 
-![BUG-07 GitHub Issue #6](../evidence/github-issues/bug-07-issue-6.png)
+![BUG-07 GitHub Issue #6](../images/github-issues/bug-07-issue-6.png)
 
 ### BUG-08 - GitHub Issue #1
 
-![BUG-08 GitHub Issue #1](../evidence/github-issues/bug-08-issue-1.png)
+![BUG-08 GitHub Issue #1](../images/github-issues/bug-08-issue-1.png)

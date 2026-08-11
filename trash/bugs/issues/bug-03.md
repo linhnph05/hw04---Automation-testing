@@ -17,4 +17,4 @@ The password is reset and the user can log in with `NewPass1!`.
 
 The UI reports that the valid password is weak and remains on the reset page. Reproduced by `FR03-TC-05` on all three browsers.
 
-![FR-03 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/evidence/fr03-chromium-report.png)
+![FR-03 Playwright report](https://raw.githubusercontent.com/linhnph05/hw04---Automation-testing/main/images/fr03-chromium-report.png)
